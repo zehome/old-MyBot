@@ -1,0 +1,16 @@
++ .op       [nick]  (master only)                   [ Done ] 24/08/2005
++ .deop     [nick]  (master only)                   [ Done ] 24/08/2005
++ .voice    [nick]  (master only)                   [ Done ] 24/08/2005
++ .devoice  [nick]  (master only)                   [ Done ] 24/08/2005
++ .halfop   [nick]  (master only)                   [ Done ] 24/08/2005
++ .dehalfop [nick]  (master only)                   [ Done ] 24/08/2005
++ print nicks on   IRC (master only)                [ Done ] 12/08/2005
++ print modules on IRC (master only)                [ Done ] 12/08/2005
++ print chan  on   IRC (master only)                [ Done ] 12/08/2005
++ ctcp handling                                     [ Done ] 12/08/2005
++ automatic reconnect                               [ Done ] 10/08/2005
++ IPv6                                              [ Done ] 10/08/2005
++ .quit [nick] (master only)                        [ Done ] 08/08/2005
++ .part [channel] [reason] (master only)            [ Done ] 08/08/2005
++ .join channel [key] (master only)                 [ Done ] 08/08/2005
++ code cleanup (add missing free()s)                [ Always in progress ]

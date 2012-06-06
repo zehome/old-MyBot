@@ -1,0 +1,2 @@
+SHARED_FLAGS=-shared
+MOD_CLIBS=-ldl

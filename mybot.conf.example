@@ -1,0 +1,37 @@
+// This is MyBot config file.
+// Lines starting with // are ignored.
+// Using quotes you can specify arguments with
+// spaces, like that: channel = "#plop plop".
+
+
+hostname  = 192.168.1.11          // IRC server to connect to
+port      = 6667                  // Port of the IRC server.
+
+// Channels to join
+// You can specify multiple channels
+channel   = #test
+channel   = #prout
+channel   = #plop
+channel   = "#plopKey abcd"       // Joins chan plopKey +k abcd
+                                  // Don't forget quotes.
+
+nick      = edBot
+
+master_nick     = ed              // Nick of the master!
+master_host     = 192.168.1.2     // host is part of the mask: ed!ed@HOST
+
+// Masters identified with their passwords
+// have to supply the password just below:
+// Set this to junk to disable.
+master_password = "sdf42"         // Password for master operations
+                                  // If the user is logged in, it can
+                                  // take the master control of the bot
+                                  // *WITHOUT* master_nick && master_host
+
+module_path = "./mod"             // Please consider using absolute PATH
+                                  // And DO NOT ADD the final '/'
+
+module = lydiaModule
+module = pingModule
+module = listModule
+module = operatorModule

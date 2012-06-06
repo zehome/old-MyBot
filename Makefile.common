@@ -1,0 +1,3 @@
+CC=gcc
+CLIBS=
+CFLAGS=-Wall -Werror -ggdb -fPIC

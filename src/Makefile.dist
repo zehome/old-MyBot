@@ -1,0 +1,56 @@
+include ../Makefile.common
+include ../Makefile.@OS@
+
+INCLUDES=-I../include/
+CFLAGS += $(INCLUDES)
+
+# Binaries
+BIN = mybot
+
+MOD_PATH = ../mod
+BIN_PATH = ..
+
+# Mybot objects
+OBJ = mybot.o log.o net.o parsing.o config.o \
+      my_string.o nicktracking.o channel.o \
+      debug.o handlers.o modules.o common.o \
+			master.o
+
+# Modules Objects
+MOD_OBJ = handlers.o common.o debug.o my_string.o
+
+# Lydia Module
+MOD_OBJ_LYDIA = $(MOD_OBJ) lydia.o lydiaModule.o
+
+# Ping Module
+MOD_OBJ_PING = $(MOD_OBJ) pingModule.o
+
+# List Module
+MOD_OBJ_LIST = $(MOD_OBJ) listModule.o channel.o
+
+# Operator Module
+MOD_OBJ_OPERATOR = $(MOD_OBJ) operatorModule.o channel.o master.o
+
+all: $(BIN)
+
+mybot: $(OBJ)
+	$(CC) $(CFLAGS) $(CLIBS) $(OBJ) -o $(BIN_PATH)/mybot $(MOD_CLIBS)
+
+lydiaModule.so: $(MOD_OBJ_LYDIA)
+	$(CC) $(CFLAGS) $(SHARED_FLAGS) $(MOD_OBJ_LYDIA) -o $(MOD_PATH)/lydiaModule.so
+
+pingModule.so: $(MOD_OBJ_PING)
+	$(CC) $(CFLAGS) $(SHARED_FLAGS) $(MOD_OBJ_PING) -o $(MOD_PATH)/pingModule.so
+
+listModule.so: $(MOD_OBJ_LIST)
+	$(CC) $(CFLAGS) $(SHARED_FLAGS) $(MOD_OBJ_LIST) -o $(MOD_PATH)/listModule.so
+
+operatorModule.so: $(MOD_OBJ_OPERATOR)
+	$(CC) $(CFLAGS) $(SHARED_FLAGS) $(MOD_OBJ_OPERATOR) -o $(MOD_PATH)/operatorModule.so
+
+
+testConfig: testConfig.o config.o my_string.o debug.o
+	$(CC) $(CFLAGS) $(CLIBS) $? -o $(BIN_PATH)/testConfig
+
+clean:
+	rm -f *.o
